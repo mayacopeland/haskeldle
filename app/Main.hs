@@ -10,7 +10,7 @@ handleGuesses n word wList = do
     guess <- getLine 
     if guess `elem` wList then
         if guess == word then
-            putStrLn "Correct word"
+            Words.getCharEqual (zip guess word) word >> putStrLn "Correct word"
         else 
             Words.getCharEqual (zip guess word) word >> handleGuesses (n-1) word wList
     else 
