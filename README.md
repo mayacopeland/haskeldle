@@ -6,4 +6,4 @@ I'm not the best at haskell and i'd love to go back and improve it more and more
 [tabatkins](https://github.com/tabatkins/wordle-list), for their wordle word list
 
 ## gamplay example
-!["gameplay"](https://i.imgur.com/UcsIx00.png)
+!["gameplay"](https://i.imgur.com/Q2eQSqr.png)
