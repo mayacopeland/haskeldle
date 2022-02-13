@@ -9,8 +9,9 @@ version:            0.1.0.0
 -- description:
 
 -- A URL where users can report bugs.
--- bug-reports:
-license:            APL
+-- bug-reports
+-- apache license is used but cabal is not playing nice
+license:            NONE 
 author:             Maya Copeland
 maintainer:         maya.copeland@protonmail.com
 
