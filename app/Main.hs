@@ -8,7 +8,10 @@ handleGuesses :: Int -> IO()
 handleGuesses 0 = return () 
 handleGuesses n = do 
     guess <- getLine 
-    handleGuesses (n-1)
+    if guess `elem` Words.wordList then
+        handleGuesses (n-1)
+    else 
+        putStrLn "Word is invalid" >> handleGuesses (n)
 
 main :: IO ()
 main = do 
