@@ -8,21 +8,14 @@ import System.Console.ANSI
 
 
 getCharEqual :: [(Char,Char)] -> String -> IO ()
-getCharEqual ((x,y):[]) word = do 
-    if x == y then
-        setSGR [SetColor Foreground Vivid Green] >>  putStr [x] >> putStrLn "" >> setSGR [SetColor Foreground Dull White] >> putStrLn "======="
-    else if x `elem` word then
-        setSGR [SetColor Foreground Vivid Yellow] >> putStr [x] >> putStrLn "" >> setSGR [SetColor Foreground Dull White] >> putStrLn "======="
-    else 
-        setSGR [SetColor Foreground Vivid White] >> putStr [x] >> putStrLn "" >> setSGR [SetColor Foreground Dull White] >> putStrLn "======="
-    
-getCharEqual ((x,y):xs) word = do
-    if x == y then
-        setSGR [SetColor Foreground Vivid Green] >> putStr [x] >> getCharEqual xs word
-    else if x `elem` word then
-        setSGR [SetColor Foreground Vivid Yellow] >> putStr [x] >> getCharEqual xs word
-    else 
-        setSGR [SetColor Foreground Vivid White] >> putStr [x] >> getCharEqual xs word
+getCharEqual ((x,y):[]) word
+    | (x == y) = setSGR [SetColor Foreground Vivid Green] >>  putStr [x] >> putStrLn "" >> setSGR [SetColor Foreground Dull White] >> putStrLn "======="
+    | (x `elem` word) = setSGR [SetColor Foreground Vivid Yellow] >> putStr [x] >> putStrLn "" >> setSGR [SetColor Foreground Dull White] >> putStrLn "======="
+    | otherwise = setSGR [SetColor Foreground Vivid White] >> putStr [x] >> putStrLn "" >> setSGR [SetColor Foreground Dull White] >> putStrLn "=======" 
+getCharEqual ((x,y):xs) word
+    | (x == y) = setSGR [SetColor Foreground Vivid Green] >> putStr [x] >> getCharEqual xs word
+    | (x `elem` word) = setSGR [SetColor Foreground Vivid Yellow] >> putStr [x] >> getCharEqual xs word
+    | otherwise = setSGR [SetColor Foreground Vivid White] >> putStr [x] >> getCharEqual xs word
 
 
 
