@@ -10,13 +10,12 @@ handleGuesses n word wList = do
     guess <- getLine 
     if guess `elem` wList then
         if guess == word then
-            Words.getCharEqual (zip guess word) word >> putStrLn "Correct word"
+            Words.getCharEqual (zip guess word) word guess >> putStrLn "Correct word"
         else 
-            Words.getCharEqual (zip guess word) word >> handleGuesses (n-1) word wList
+            Words.getCharEqual (zip guess word) word guess >> handleGuesses (n-1) word wList 
     else 
-        putStrLn "Word is invalid" >> handleGuesses (n) word wList
-
-main :: IO ()
+        putStrLn "Word is invalid" >> handleGuesses (n) word wList 
+main :: IO () 
 main = do 
     words <- readFile "words.txt"
     let wList = Words.wordList words
